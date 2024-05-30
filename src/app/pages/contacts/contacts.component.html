@@ -1,0 +1,17 @@
+<div>
+  <h1>Contacts</h1>
+  <ul>
+    @for (contact of contacts; track contact.id) {
+      <li>
+        <a routerLink="/contacts/{{ contact.id }}">
+          <img
+            [src]="'/users/' + contact.avatar"
+            [alt]="contact.name + '\'s avatar'"
+            width="50px" />
+          {{ contact.name }}
+        </a>
+      </li>
+    }
+  </ul>
+  <button (click)="handleAddClick()">Add Contact</button>
+</div>

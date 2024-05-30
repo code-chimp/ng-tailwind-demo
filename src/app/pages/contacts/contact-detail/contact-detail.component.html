@@ -1,0 +1,13 @@
+<div>
+  <img [src]="'/users/' + contact()!.avatar" [alt]="contact()!.name" />
+
+  <div>
+    <h1>{{ contact()!.name }}</h1>
+
+    <div>
+      <button (click)="handleEditClick()">Edit</button>
+      <button (click)="handleDeleteClick()">Delete</button>
+      <button (click)="handleBackClick()">Back</button>
+    </div>
+  </div>
+</div>
