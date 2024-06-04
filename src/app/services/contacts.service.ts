@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 
-import { IContact } from '../@interfaces/IContact';
-import { seedData } from '../seed-data';
+import { IContact } from '@app/@interfaces/IContact';
+import { seedData } from '@app/seed-data';
 
 /**
  * @class ContactsService

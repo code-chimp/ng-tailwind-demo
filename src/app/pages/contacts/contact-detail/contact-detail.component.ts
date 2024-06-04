@@ -1,8 +1,8 @@
 import { Component, inject, Input, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IContact } from '../../../@interfaces/IContact';
-import { ContactsService } from '../../../services/contacts.service';
+import { IContact } from '@app/@interfaces/IContact';
+import { ContactsService } from '@app/services/contacts.service';
 
 @Component({
   selector: 'app-contact-detail',

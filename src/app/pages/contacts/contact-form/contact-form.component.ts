@@ -2,8 +2,8 @@ import { Component, inject, Input, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IContact } from '../../../@interfaces/IContact';
-import { ContactsService } from '../../../services/contacts.service';
+import { IContact } from '@app/@interfaces/IContact';
+import { ContactsService } from '@app/services/contacts.service';
 
 const stateLength = 2;
 const zipLength = 5;

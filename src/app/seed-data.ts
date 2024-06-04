@@ -1,4 +1,4 @@
-import { IContact } from './@interfaces/IContact';
+import { IContact } from '@app/@interfaces/IContact';
 
 export const seedData: IContact[] = [
   {
