@@ -8,7 +8,16 @@
             [src]="'/users/' + contact.avatar"
             [alt]="contact.name + '\'s avatar'"
             width="50px" />
-          {{ contact.name }}
+          <div>
+            <span>{{ contact.name }}</span>
+            <span>{{ contact.email }}</span>
+            <span>
+              {{ contact.phone.mobile }}(m)
+              @if (contact.phone.work) {
+                {{ ' ' + contact.phone.work }}(w)
+              }
+            </span>
+          </div>
         </a>
       </li>
     }

@@ -1,13 +1,40 @@
 <div>
-  <img [src]="'/users/' + contact()!.avatar" [alt]="contact()!.name" />
-
   <div>
-    <h1>{{ contact()!.name }}</h1>
+    @if (contact() !== null) {
+      <img [src]="'/users/' + contact()!.avatar" [alt]="contact()!.name" />
 
-    <div>
-      <button (click)="handleEditClick()">Edit</button>
-      <button (click)="handleDeleteClick()">Delete</button>
-      <button (click)="handleBackClick()">Back</button>
-    </div>
+      <div>
+        <h1>{{ contact()!.name }}</h1>
+        <a href="mailto:{{ contact()!.email }}">{{ contact()!.email }}</a>
+        <div>
+          <span>
+            <a href="tel:{{ contact()!.phone.mobile }}">{{ contact()!.phone.mobile }}</a> main
+          </span>
+          @if (contact()!.phone.work) {
+            <span>
+              <a href="tel:{{ contact()!.phone.work }}">{{ contact()!.phone.work }}</a> work
+            </span>
+          }
+          <div>
+            <h3>Notes:</h3>
+            <p>{{ contact()!.notes }}</p>
+          </div>
+          <div>
+            <span>{{ contact()!.address }}</span>
+            <span>
+              {{ contact()!.city }}, {{ contact()!.state }} {{ contact()!.postalCode }}
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <button (click)="handleEditClick()">Edit</button>
+          <button (click)="handleDeleteClick()">Delete</button>
+          <button (click)="handleBackClick()">Back</button>
+        </div>
+      </div>
+    } @else {
+      <p>Loading...</p>
+    }
   </div>
 </div>

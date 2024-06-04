@@ -21,15 +21,20 @@
     "url": "https://github.com/code-chimp/ng-tailwind-demo.git"
   },
   "volta": {
-    "node": "20.14.0",
-    "pnpm": "9.1.4"
+    "node": "20.14.0"
   },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "fix": "run-p fix:*",
+    "fix:styles": "stylelint \"src/**/*.css\" --fix",
+    "fix:format": "prettier --write .",
+    "lint": "run-p lint:*",
+    "lint:ts": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
+    "lint:styles": "stylelint \"src/**/*.css\""
   },
   "dependencies": {
     "@angular/animations": "^18.0.1",
@@ -47,6 +52,9 @@
     "@angular-devkit/build-angular": "^18.0.2",
     "@angular/cli": "^18.0.2",
     "@angular/compiler-cli": "^18.0.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@types/eslint": "~8.56.10",
+    "@types/eslint-config-prettier": "~6.11.3",
     "@types/jasmine": "~5.1.4",
     "@types/karma": "~6.3.8",
     "@types/karma-chrome-launcher": "~3.1.4",
@@ -54,16 +62,23 @@
     "@types/karma-jasmine": "~4.0.5",
     "@types/karma-jasmine-html-reporter": "~1.7.3",
     "@types/node": "^20.12.13",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
     "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "jasmine-core": "~5.1.2",
     "karma": "~6.4.3",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.0",
     "tailwindcss": "^3.4.3",
     "typescript": "~5.4.5"
   }

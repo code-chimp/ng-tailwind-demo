@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IContact } from '../../../@interfaces/IContact';
 import { ContactsService } from '../../../services/contacts.service';
 
+const stateLength = 2;
+const zipLength = 5;
+
 @Component({
   selector: 'app-contact-form',
   standalone: true,
@@ -52,13 +55,13 @@ export class ContactFormComponent {
     address: new FormControl<string>('', Validators.required),
     city: new FormControl<string>('', Validators.required),
     state: new FormControl<string>('', [
-      Validators.minLength(2),
-      Validators.maxLength(2),
+      Validators.minLength(stateLength),
+      Validators.maxLength(stateLength),
       Validators.required,
     ]),
     postalCode: new FormControl<string>('', [
-      Validators.minLength(5),
-      Validators.maxLength(5),
+      Validators.minLength(zipLength),
+      Validators.maxLength(zipLength),
       Validators.required,
     ]),
     country: new FormControl<string>('USA', Validators.required),

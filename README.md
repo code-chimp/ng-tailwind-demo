@@ -1,6 +1,25 @@
 # [TailwindCSS][tw] Demo Application
 
-A demo application to illustrate the utility of adding [TailwindCSS][tw] to our standard Angular template.
+## Description
+
+This is a purposely small and ugly, but functional, application that we can practice and demonstrate various
+patterns of using [TailwindCSS][tw]'s design language to improve the speed and consistency of our application
+development process.
+
+## Branches:
+
+The intent is to walk through the styling of the application during a live demonstration, but if you would
+prefer to just skip to the good bits - each of these branches builds on the one above it
+
+- **main**: basic unstyled working application
+- **tw-default**: following Tailwind's suggested usage guidelines
+- **tw-vanish**: proposed pattern to minimize the "class-itis" of vanilla TailwindCSS
+- **bonus**: touch on [custom theming][uitheme]
+
+## "Would you like to know more?"
+
+- [Tailwind CSS Color Generator][uitheme]: generates a custom color scale from a given color
+
 
 ## See also:
 

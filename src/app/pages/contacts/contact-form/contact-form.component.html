@@ -1,15 +1,18 @@
 <div>
-  <h1>Contact Form</h1>
+  @if (updating()) {
+    <h1>Updating: {{ contact()!.name }}</h1>
+  } @else {
+    <h1>New Contact</h1>
+  }
   <form [formGroup]="contactForm" (ngSubmit)="handleSubmitClick()">
     <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required formControlName="name" />
-      @if (contactForm.controls.name.touched && !contactForm.controls.name.valid) {
-        <span>* Required</span>
-      }
-    </div>
-    <div>
-      <img [src]="'/users/' + contactForm.controls.avatar.value" alt="Avatar" />
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required formControlName="name" />
+        @if (contactForm.controls.name.touched && !contactForm.controls.name.valid) {
+          <span>* Required</span>
+        }
+      </div>
       <div>
         <label for="avatar">Avatar:</label>
         <input type="text" id="avatar" name="avatar" required formControlName="avatar" />
@@ -17,122 +20,130 @@
           <span>* Required</span>
         }
       </div>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required formControlName="email" />
-      @if (contactForm.controls.email.touched && !contactForm.controls.email.valid) {
-        <span>
-          @if (contactForm.controls.email.hasError('required')) {
-            * Required
-          }
-          @if (contactForm.controls.email.hasError('email')) {
-            * Please check your email format
-          }
-        </span>
-      }
-    </div>
-    <fieldset>
-      <legend>Phone Numbers</legend>
       <div>
-        <label for="mobilePhone">Mobile Phone:</label>
-        <input
-          type="tel"
-          id="mobilePhone"
-          name="mobilePhone"
-          placeholder="(###) ###-####"
-          required
-          formControlName="mobilePhone" />
-        @if (
-          contactForm.controls.mobilePhone.touched && !contactForm.controls.mobilePhone.valid
-        ) {
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required formControlName="email" />
+        @if (contactForm.controls.email.touched && !contactForm.controls.email.valid) {
           <span>
             @if (contactForm.controls.email.hasError('required')) {
               * Required
             }
-            @if (contactForm.controls.email.hasError('minLength')) {
-              * Area + Phone needs to be at least 10 characters long (###-###-####)
+            @if (contactForm.controls.email.hasError('email')) {
+              * Please check your email format
             }
           </span>
         }
       </div>
+      <fieldset>
+        <legend>Phone Numbers</legend>
+        <div>
+          <label for="mobilePhone">Mobile Phone:</label>
+          <input
+            type="tel"
+            id="mobilePhone"
+            name="mobilePhone"
+            placeholder="(###) ###-####"
+            required
+            formControlName="mobilePhone" />
+          @if (
+            contactForm.controls.mobilePhone.touched && !contactForm.controls.mobilePhone.valid
+          ) {
+            <span>
+              @if (contactForm.controls.email.hasError('required')) {
+                * Required
+              }
+              @if (contactForm.controls.email.hasError('minLength')) {
+                * Area + Phone needs to be at least 10 characters long (###-###-####)
+              }
+            </span>
+          }
+        </div>
+        <div>
+          <label for="workPhone">Work Phone:</label>
+          <input
+            type="tel"
+            id="workPhone"
+            name="workPhone"
+            placeholder="(###) ###-####"
+            formControlName="workPhone" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Address</legend>
+        <div>
+          <label for="address">Street:</label>
+          <input type="text" id="address" name="address" required formControlName="address" />
+          @if (contactForm.controls.address.touched && !contactForm.controls.address.valid) {
+            <span>* Required</span>
+          }
+        </div>
+        <div>
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" required formControlName="city" />
+          @if (contactForm.controls.city.touched && !contactForm.controls.city.valid) {
+            <span>* Required</span>
+          }
+        </div>
+        <div>
+          <label for="state">State:</label>
+          <input type="text" id="state" name="state" required formControlName="state" />
+          @if (contactForm.controls.state.touched && !contactForm.controls.state.valid) {
+            <span>
+              @if (contactForm.controls.state.hasError('required')) {
+                * Required
+              }
+              @if (
+                contactForm.controls.state.hasError('minlength') ||
+                contactForm.controls.state.hasError('maxlength')
+              ) {
+                * State abbreviation needs to be exactly 2 characters
+              }
+            </span>
+          }
+        </div>
+        <div>
+          <label for="postalCode">Zip:</label>
+          <input
+            type="text"
+            id="postalCode"
+            name="postalCode"
+            placeholder="55555"
+            required
+            formControlName="postalCode" />
+          @if (
+            contactForm.controls.postalCode.touched && !contactForm.controls.postalCode.valid
+          ) {
+            <span>
+              @if (contactForm.controls.postalCode.hasError('required')) {
+                * Required
+              }
+              @if (
+                contactForm.controls.postalCode.hasError('minlength') ||
+                contactForm.controls.postalCode.hasError('maxlength')
+              ) {
+                * Zip code should be exactly 5 characters long (#####)
+              }
+            </span>
+          }
+        </div>
+      </fieldset>
       <div>
-        <label for="workPhone">Work Phone:</label>
-        <input
-          type="tel"
-          id="workPhone"
-          name="workPhone"
-          placeholder="(###) ###-####"
-          formControlName="workPhone" />
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" formControlName="notes"></textarea>
       </div>
-    </fieldset>
-    <fieldset>
-      <legend>Address</legend>
-      <div>
-        <label for="address">Street:</label>
-        <input type="text" id="address" name="address" required formControlName="address" />
-        @if (contactForm.controls.address.touched && !contactForm.controls.address.valid) {
-          <span>* Required</span>
-        }
-      </div>
-      <div>
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" required formControlName="city" />
-        @if (contactForm.controls.city.touched && !contactForm.controls.city.valid) {
-          <span>* Required</span>
-        }
-      </div>
-      <div>
-        <label for="state">State:</label>
-        <input type="text" id="state" name="state" required formControlName="state" />
-        @if (contactForm.controls.state.touched && !contactForm.controls.state.valid) {
-          <span>
-            @if (contactForm.controls.state.hasError('required')) {
-              * Required
-            }
-            @if (
-              contactForm.controls.state.hasError('minlength') ||
-              contactForm.controls.state.hasError('maxlength')
-            ) {
-              * State abbreviation needs to be exactly 2 characters
-            }
-          </span>
-        }
-      </div>
-      <div>
-        <label for="postalCode">Zip:</label>
-        <input
-          type="text"
-          id="postalCode"
-          name="postalCode"
-          placeholder="55555"
-          required
-          formControlName="postalCode" />
-        @if (
-          contactForm.controls.postalCode.touched && !contactForm.controls.postalCode.valid
-        ) {
-          <span>
-            @if (contactForm.controls.postalCode.hasError('required')) {
-              * Required
-            }
-            @if (
-              contactForm.controls.postalCode.hasError('minlength') ||
-              contactForm.controls.postalCode.hasError('maxlength')
-            ) {
-              * Zip code should be exactly 5 characters long (#####)
-            }
-          </span>
-        }
-      </div>
-    </fieldset>
-    <div>
-      <label for="notes">Notes:</label>
-      <textarea id="notes" name="notes" formControlName="notes"></textarea>
-    </div>
 
-    <button type="submit" [disabled]="!contactForm.valid">
-      {{ updating() ? 'Update' : 'Add' }} Contact
-    </button>
-    <button type="button" (click)="handleCancelClick()">Cancel</button>
+      <div>
+        <button type="submit" [disabled]="!contactForm.valid">
+          {{ updating() ? 'Update' : 'Add' }} Contact
+        </button>
+        <button type="button" (click)="handleCancelClick()">Cancel</button>
+      </div>
+    </div>
+    <div>
+      <figure>
+        <img [src]="'/users/' + contactForm.controls.avatar.value" alt="Avatar" />
+        <figcaption>Avatar preview</figcaption>
+      </figure>
+    </div>
   </form>
 </div>
