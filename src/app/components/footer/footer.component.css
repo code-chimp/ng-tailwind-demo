@@ -1,0 +1,7 @@
+.footer-container {
+  @apply flex w-full justify-between border-t p-4;
+
+  nav {
+    display: block;
+  }
+}

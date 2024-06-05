@@ -1,0 +1,15 @@
+.header-container {
+  @apply flex w-full justify-between border-b p-4;
+
+  nav {
+    display: block;
+
+    ul {
+      @apply flex;
+
+      li {
+        @apply ms-4;
+      }
+    }
+  }
+}

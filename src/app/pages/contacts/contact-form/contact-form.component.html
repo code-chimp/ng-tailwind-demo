@@ -1,26 +1,26 @@
-<div class="p-2">
+<div class="contact-form-container">
   @if (updating()) {
     <h1>Updating: {{ contact()!.name }}</h1>
   } @else {
     <h1>New Contact</h1>
   }
-  <form class="flex" [formGroup]="contactForm" (ngSubmit)="handleSubmitClick()">
-    <div class="w-2/3">
-      <div class="mb-1 flex flex-col">
+  <form class="" [formGroup]="contactForm" (ngSubmit)="handleSubmitClick()">
+    <div class="inputs-column">
+      <div class="controls-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required formControlName="name" />
         @if (contactForm.controls.name.touched && !contactForm.controls.name.valid) {
           <span>* Required</span>
         }
       </div>
-      <div class="mb-1 flex flex-col">
+      <div class="controls-group">
         <label for="avatar">Avatar:</label>
         <input type="text" id="avatar" name="avatar" required formControlName="avatar" />
         @if (contactForm.controls.avatar.touched && !contactForm.controls.avatar.valid) {
           <span>* Required</span>
         }
       </div>
-      <div class="mb-1 flex flex-col">
+      <div class="controls-group">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required formControlName="email" />
         @if (contactForm.controls.email.touched && !contactForm.controls.email.valid) {
@@ -34,9 +34,9 @@
           </span>
         }
       </div>
-      <fieldset class="mb-2 rounded-md border border-gray-400 px-2 py-1">
-        <legend class="px-1 font-medium">Phone Numbers</legend>
-        <div class="mb-1 flex flex-col">
+      <fieldset>
+        <legend>Phone Numbers</legend>
+        <div class="controls-group">
           <label for="mobilePhone">Mobile Phone:</label>
           <input
             type="tel"
@@ -49,16 +49,16 @@
             contactForm.controls.mobilePhone.touched && !contactForm.controls.mobilePhone.valid
           ) {
             <span>
-              @if (contactForm.controls.email.hasError('required')) {
+              @if (contactForm.controls.mobilePhone.hasError('required')) {
                 * Required
               }
-              @if (contactForm.controls.email.hasError('minLength')) {
+              @if (contactForm.controls.mobilePhone.hasError('minlength')) {
                 * Area + Phone needs to be at least 10 characters long (###-###-####)
               }
             </span>
           }
         </div>
-        <div class="mb-1 flex flex-col">
+        <div class="controls-group">
           <label for="workPhone">Work Phone:</label>
           <input
             type="tel"
@@ -68,23 +68,23 @@
             formControlName="workPhone" />
         </div>
       </fieldset>
-      <fieldset class="mb-2 rounded-md border border-gray-400 px-2 py-1">
-        <legend class="px-1 font-medium">Address</legend>
-        <div class="mb-1 flex flex-col">
+      <fieldset>
+        <legend>Address</legend>
+        <div class="controls-group">
           <label for="address">Street:</label>
           <input type="text" id="address" name="address" required formControlName="address" />
           @if (contactForm.controls.address.touched && !contactForm.controls.address.valid) {
             <span>* Required</span>
           }
         </div>
-        <div class="mb-1 flex flex-col">
+        <div class="controls-group">
           <label for="city">City:</label>
           <input type="text" id="city" name="city" required formControlName="city" />
           @if (contactForm.controls.city.touched && !contactForm.controls.city.valid) {
             <span>* Required</span>
           }
         </div>
-        <div class="mb-1 flex flex-col">
+        <div class="controls-group">
           <label for="state">State:</label>
           <input type="text" id="state" name="state" required formControlName="state" />
           @if (contactForm.controls.state.touched && !contactForm.controls.state.valid) {
@@ -101,7 +101,7 @@
             </span>
           }
         </div>
-        <div class="mb-1 flex flex-col">
+        <div class="controls-group">
           <label for="postalCode">Zip:</label>
           <input
             type="text"
@@ -127,24 +127,21 @@
           }
         </div>
       </fieldset>
-      <div class="mb-1 flex flex-col">
+      <div class="controls-group">
         <label for="notes">Notes:</label>
         <textarea id="notes" name="notes" formControlName="notes"></textarea>
       </div>
 
-      <div class="flex justify-between py-2">
+      <div class="buttons">
         <button type="submit" class="btn-success" [disabled]="!contactForm.valid">
           {{ updating() ? 'Update' : 'Add' }} Contact
         </button>
         <button type="button" class="btn-danger" (click)="handleCancelClick()">Cancel</button>
       </div>
     </div>
-    <div class="w-1/3">
-      <figure class="text-center">
-        <img
-          class="mx-auto max-h-48 rounded"
-          [src]="'/users/' + contactForm.controls.avatar.value"
-          alt="Avatar" />
+    <div class="avatar-column">
+      <figure>
+        <img [src]="'/users/' + contactForm.controls.avatar.value" alt="Avatar" />
         <figcaption>Avatar preview</figcaption>
       </figure>
     </div>

@@ -1,16 +1,11 @@
-<div class="mx-auto w-11/12">
+<div class="contacts-container">
   <h1>Contacts</h1>
   <ul>
     @for (contact of contacts; track contact.id) {
       <li>
-        <a
-          class="mb-2 flex rounded border p-1 hover:shadow-xl"
-          routerLink="/contacts/{{ contact.id }}">
-          <img
-            class="w-16 rounded-full"
-            [src]="'/users/' + contact.avatar"
-            [alt]="contact.name + '\'s avatar'" />
-          <div class="ms-1 flex flex-col px-2">
+        <a routerLink="/contacts/{{ contact.id }}">
+          <img [src]="'/users/' + contact.avatar" [alt]="contact.name + '\'s avatar'" />
+          <div>
             <span>{{ contact.name }}</span>
             <span>{{ contact.email }}</span>
             <span>

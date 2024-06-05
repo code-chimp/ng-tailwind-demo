@@ -1,0 +1,27 @@
+.contact-detail-container {
+  @apply mx-auto flex w-full max-w-[65rem] rounded-md border p-1;
+
+  img {
+    @apply max-h-52 rounded-md;
+  }
+
+  .buttons {
+    @apply flex justify-end;
+
+    button {
+      @apply ms-1;
+    }
+  }
+
+  .info-container {
+    @apply flex flex-grow flex-col p-1;
+
+    .details {
+      @apply flex;
+
+      .column {
+        @apply flex w-1/2 flex-col;
+      }
+    }
+  }
+}
