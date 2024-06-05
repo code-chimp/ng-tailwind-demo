@@ -11,10 +11,10 @@ development process.
 The intent is to walk through the styling of the application during a live demonstration, but if you would
 prefer to just skip to the good bits - each of these branches builds on the one above it
 
-- **main**: basic unstyled working application
-- **tw-default**: following Tailwind's suggested usage guidelines
-- **tw-vanish**: proposed pattern to minimize the "class-itis" of vanilla TailwindCSS
-- **bonus**: touch on [custom theming][uitheme]
+- **[main](https://github.com/code-chimp/ng-tailwind-demo)**: basic unstyled working application
+- **[tw-default](https://github.com/code-chimp/ng-tailwind-demo/tree/tw-default)**: following Tailwind's suggested usage guidelines
+- **[tw-vanish](https://github.com/code-chimp/ng-tailwind-demo/tree/tw-vanish)**: proposed pattern to minimize the "class-itis" of vanilla TailwindCSS
+- **[bonus](https://github.com/code-chimp/ng-tailwind-demo/tree/bonus)**: touch on [custom theming][uitheme]
 
 ## "Would you like to know more?"
 
