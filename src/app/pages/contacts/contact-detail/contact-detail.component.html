@@ -10,7 +10,7 @@
       <a href="mailto:{{ contact()!.email }}">{{ contact()!.email }}</a>
 
       <div class="flex">
-        <div class="flex flex-col">
+        <div class="flex w-1/2 flex-col">
           <span>
             <a href="tel:{{ contact()!.phone.mobile }}">{{ contact()!.phone.mobile }}</a> main
           </span>
@@ -19,12 +19,12 @@
               <a href="tel:{{ contact()!.phone.work }}">{{ contact()!.phone.work }}</a> work
             </span>
           }
-          <div class="min-h-[60px] min-w-[500px] p-1">
+          <div class="min-h-[60px] p-1">
             <h3>Notes:</h3>
             <p>{{ contact()!.notes }}</p>
           </div>
         </div>
-        <div class="flec flex-col">
+        <div class="flex w-1/2 flex-col">
           <span>{{ contact()!.address }}</span>
           <span>
             {{ contact()!.city }}, {{ contact()!.state }} {{ contact()!.postalCode }}

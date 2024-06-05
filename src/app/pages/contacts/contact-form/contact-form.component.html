@@ -5,7 +5,7 @@
     <h1>New Contact</h1>
   }
   <form class="flex" [formGroup]="contactForm" (ngSubmit)="handleSubmitClick()">
-    <div class="flex w-2/3 flex-col">
+    <div class="w-2/3">
       <div class="mb-1 flex flex-col">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required formControlName="name" />
@@ -34,7 +34,7 @@
           </span>
         }
       </div>
-      <fieldset class="mb-2 rounded-md border border-gray-200 px-2 py-1">
+      <fieldset class="mb-2 rounded-md border border-gray-400 px-2 py-1">
         <legend class="px-1 font-medium">Phone Numbers</legend>
         <div class="mb-1 flex flex-col">
           <label for="mobilePhone">Mobile Phone:</label>
@@ -68,7 +68,7 @@
             formControlName="workPhone" />
         </div>
       </fieldset>
-      <fieldset class="mb-2 rounded-md border border-gray-200 px-2 py-1">
+      <fieldset class="mb-2 rounded-md border border-gray-400 px-2 py-1">
         <legend class="px-1 font-medium">Address</legend>
         <div class="mb-1 flex flex-col">
           <label for="address">Street:</label>
