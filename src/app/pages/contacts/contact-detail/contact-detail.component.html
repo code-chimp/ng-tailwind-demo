@@ -1,12 +1,16 @@
-<div>
-  <div>
-    @if (contact() !== null) {
-      <img [src]="'/users/' + contact()!.avatar" [alt]="contact()!.name" />
+<div class="mx-auto flex w-full max-w-[65rem] rounded-md border p-1">
+  @if (contact() !== null) {
+    <img
+      class="max-h-52 rounded-md"
+      [src]="'/users/' + contact()!.avatar"
+      [alt]="contact()!.name" />
 
-      <div>
-        <h1>{{ contact()!.name }}</h1>
-        <a href="mailto:{{ contact()!.email }}">{{ contact()!.email }}</a>
-        <div>
+    <div class="flex flex-grow flex-col p-1">
+      <h1>{{ contact()!.name }}</h1>
+      <a href="mailto:{{ contact()!.email }}">{{ contact()!.email }}</a>
+
+      <div class="flex">
+        <div class="flex flex-col">
           <span>
             <a href="tel:{{ contact()!.phone.mobile }}">{{ contact()!.phone.mobile }}</a> main
           </span>
@@ -15,26 +19,26 @@
               <a href="tel:{{ contact()!.phone.work }}">{{ contact()!.phone.work }}</a> work
             </span>
           }
-          <div>
+          <div class="min-h-[60px] min-w-[500px] p-1">
             <h3>Notes:</h3>
             <p>{{ contact()!.notes }}</p>
           </div>
-          <div>
-            <span>{{ contact()!.address }}</span>
-            <span>
-              {{ contact()!.city }}, {{ contact()!.state }} {{ contact()!.postalCode }}
-            </span>
-          </div>
         </div>
-
-        <div>
-          <button (click)="handleEditClick()">Edit</button>
-          <button (click)="handleDeleteClick()">Delete</button>
-          <button (click)="handleBackClick()">Back</button>
+        <div class="flec flex-col">
+          <span>{{ contact()!.address }}</span>
+          <span>
+            {{ contact()!.city }}, {{ contact()!.state }} {{ contact()!.postalCode }}
+          </span>
         </div>
       </div>
-    } @else {
-      <p>Loading...</p>
-    }
-  </div>
+
+      <div class="flex justify-end">
+        <button class="btn-primary" (click)="handleEditClick()">Edit</button>
+        <button class="btn-danger" (click)="handleDeleteClick()">Delete</button>
+        <button (click)="handleBackClick()">Back</button>
+      </div>
+    </div>
+  } @else {
+    <p>Loading...</p>
+  }
 </div>

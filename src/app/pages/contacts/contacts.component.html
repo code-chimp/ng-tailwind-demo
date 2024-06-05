@@ -1,20 +1,22 @@
-<div>
+<div class="mx-auto w-11/12">
   <h1>Contacts</h1>
   <ul>
     @for (contact of contacts; track contact.id) {
       <li>
-        <a routerLink="/contacts/{{ contact.id }}">
+        <a
+          class="mb-2 flex rounded border p-1 hover:shadow-xl"
+          routerLink="/contacts/{{ contact.id }}">
           <img
+            class="w-16 rounded-full"
             [src]="'/users/' + contact.avatar"
-            [alt]="contact.name + '\'s avatar'"
-            width="50px" />
-          <div>
+            [alt]="contact.name + '\'s avatar'" />
+          <div class="ms-1 flex flex-col px-2">
             <span>{{ contact.name }}</span>
             <span>{{ contact.email }}</span>
             <span>
               {{ contact.phone.mobile }}(m)
               @if (contact.phone.work) {
-                {{ ' ' + contact.phone.work }}(w)
+                {{ ' / ' + contact.phone.work }}(w)
               }
             </span>
           </div>
@@ -22,5 +24,5 @@
       </li>
     }
   </ul>
-  <button (click)="handleAddClick()">Add Contact</button>
+  <button class="btn-success" (click)="handleAddClick()">Add Contact</button>
 </div>
