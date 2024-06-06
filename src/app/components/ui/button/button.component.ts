@@ -2,10 +2,11 @@ import { Component, computed, Input, input } from '@angular/core';
 import { twMerge } from 'tailwind-merge';
 
 import {
-  type ButtonProps,
+  type ButtonSize,
   ButtonStyles,
   type ButtonType,
-} from '@app/components/ui/button/button-props';
+  type ButtonVariant,
+} from '@app/components/ui/button/button-styles';
 
 @Component({
   selector: 'button',
@@ -18,22 +19,12 @@ import {
   },
 })
 export class ButtonComponent {
-  props = input<ButtonProps>();
-
   @Input() type: ButtonType = 'button';
+  @Input() variant: ButtonVariant = 'primary';
+  @Input() size: ButtonSize = 'md';
 
   classes = computed(() => {
-    let classes = '';
-
-    if (this.props()) {
-      const { variant, size } = this.props()!;
-      classes = ButtonStyles({ variant, size });
-    } else {
-      // will pull the default styles from cva
-      classes = ButtonStyles();
-    }
-
     // tailwind merge will clean up any conflicts
-    return twMerge(classes);
+    return twMerge(ButtonStyles({ variant: this.variant, size: this.size }));
   });
 }

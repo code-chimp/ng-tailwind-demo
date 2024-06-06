@@ -133,12 +133,10 @@
       </div>
 
       <div class="buttons">
-        <button type="submit" [props]="{ variant: 'success' }" [disabled]="!contactForm.valid">
+        <button type="submit" variant="success" [disabled]="!contactForm.valid">
           {{ updating() ? 'Update' : 'Add' }} Contact
         </button>
-        <button type="button" [props]="{ variant: 'danger' }" (click)="handleCancelClick()">
-          Cancel
-        </button>
+        <button type="button" variant="danger" (click)="handleCancelClick()">Cancel</button>
       </div>
     </div>
     <div class="avatar-column">

@@ -44,5 +44,6 @@ export const ButtonStyles = cva(
   },
 );
 
-export type ButtonProps = VariantProps<typeof ButtonStyles>;
 export type ButtonType = 'button' | 'reset' | 'submit';
+export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
