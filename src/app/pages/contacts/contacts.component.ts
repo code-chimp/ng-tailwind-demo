@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { ContactsService } from '@app/services/contacts.service';
 import { IContact } from '@app/@interfaces/IContact';
+import { ButtonComponent } from '@app/components/ui/button/button.component';
 
 @Component({
   selector: 'app-contacts',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ButtonComponent],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.css',
 })

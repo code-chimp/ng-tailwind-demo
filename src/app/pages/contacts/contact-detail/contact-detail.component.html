@@ -30,9 +30,9 @@
       </div>
 
       <div class="buttons">
-        <button class="btn-primary" (click)="handleEditClick()">Edit</button>
-        <button class="btn-danger" (click)="handleDeleteClick()">Delete</button>
-        <button (click)="handleBackClick()">Back</button>
+        <button [props]="{ variant: 'primary' }" (click)="handleEditClick()">Edit</button>
+        <button [props]="{ variant: 'danger' }" (click)="handleDeleteClick()">Delete</button>
+        <button [props]="{ variant: 'secondary' }" (click)="handleBackClick()">Back</button>
       </div>
     </div>
   } @else {

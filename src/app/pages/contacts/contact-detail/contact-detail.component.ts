@@ -2,12 +2,13 @@ import { Component, inject, Input, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { IContact } from '@app/@interfaces/IContact';
+import { ButtonComponent } from '@app/components/ui/button/button.component';
 import { ContactsService } from '@app/services/contacts.service';
 
 @Component({
   selector: 'app-contact-detail',
   standalone: true,
-  imports: [],
+  imports: [ButtonComponent],
   templateUrl: './contact-detail.component.html',
   styleUrl: './contact-detail.component.css',
 })
@@ -34,6 +35,7 @@ export class ContactDetailComponent {
 
   handleDeleteClick() {
     this._contactsService.deleteContact(this.contact()!);
+    this.handleBackClick();
   }
 
   handleBackClick() {

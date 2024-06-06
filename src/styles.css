@@ -23,39 +23,24 @@
     @apply text-base font-bold;
   }
 
-  button,
   input,
   textarea {
     @apply rounded-md border px-2.5 py-1 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
-  button:hover {
-    @apply font-bold;
-  }
-
   label {
     @apply font-bold;
   }
-}
 
-@layer components {
-  .btn-primary {
-    @apply bg-blue-700 text-white hover:bg-blue-600;
-  }
+  section {
+    @apply mt-4;
 
-  .btn-secondary {
-    @apply bg-gray-500 text-white;
-  }
+    p {
+      @apply ms-4;
+    }
 
-  .btn-success {
-    @apply bg-green-700 text-white hover:bg-green-500;
-  }
-
-  .btn-danger {
-    @apply bg-red-700 text-white hover:bg-red-500;
-  }
-
-  .btn-warning {
-    @apply bg-yellow-700 text-white hover:bg-yellow-500;
+    ul {
+      @apply ms-4 list-inside list-disc;
+    }
   }
 }

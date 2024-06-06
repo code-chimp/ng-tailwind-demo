@@ -19,5 +19,5 @@
       </li>
     }
   </ul>
-  <button class="btn-success" (click)="handleAddClick()">Add Contact</button>
+  <button [props]="{ variant: 'success' }" (click)="handleAddClick()">Add Contact</button>
 </div>

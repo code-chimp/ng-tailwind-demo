@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { IContact } from '@app/@interfaces/IContact';
+import { ButtonComponent } from '@app/components/ui/button/button.component';
 import { ContactsService } from '@app/services/contacts.service';
 
 const stateLength = 2;
@@ -11,7 +12,7 @@ const zipLength = 5;
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ButtonComponent, ReactiveFormsModule],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
 })
@@ -61,7 +62,6 @@ export class ContactFormComponent {
     ]),
     postalCode: new FormControl<string>('', [
       Validators.minLength(zipLength),
-      Validators.maxLength(zipLength),
       Validators.required,
     ]),
     country: new FormControl<string>('USA', Validators.required),
