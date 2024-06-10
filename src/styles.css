@@ -3,20 +3,29 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply bg-electric-violet-50;
+  }
+
+  header,
+  footer {
+    @apply bg-electric-violet-100;
+  }
+
   a {
-    @apply hover:underline;
+    @apply text-electric-violet-700 hover:text-electric-violet-500 hover:underline;
   }
 
   h1 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-bold text-electric-violet-900;
   }
 
   h2 {
-    @apply text-xl font-bold;
+    @apply text-xl font-bold text-electric-violet-800;
   }
 
   h3 {
-    @apply text-lg font-bold;
+    @apply text-lg font-bold text-electric-violet-700;
   }
 
   h4 {

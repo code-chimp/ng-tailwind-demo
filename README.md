@@ -21,7 +21,6 @@ prefer to just skip to the good bits - each of these branches builds on the one 
 - [Tailwind CSS Color Generator][uitheme]: generates a custom color scale from a given color
 - [Class Variance Authority](https://cva.style/docs): cva aims to take away the pain points of creating CSS-in-TS variant styling, allowing you to focus on the more fun aspects of UI development.
 
-
 ## See also:
 
 [React version](https://github.com/code-chimp/react-tailwind-demo)
